@@ -1,0 +1,26 @@
+buildscript {
+	repositories {
+		maven {
+			url 'http://elgregos.com/artifactory/elgregos'
+			credentials {
+				username = "${artifactory_user}"
+				password = "${artifactory_password}"
+			}
+		}
+		ivy {
+			url 'http://elgregos.com/artifactory/elgregos'
+			credentials {
+				username = "${artifactory_user}"
+				password = "${artifactory_password}"
+			}
+		}
+	}
+ 	dependencies {
+    	classpath "org.wildfly.swarm:wildfly-swarm-plugin:1.0.0.Alpha8"
+  	}
+}
+
+
+apply plugin: 'java'
+apply plugin: 'wildfly-swarm'
+
